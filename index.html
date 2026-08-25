@@ -3,35 +3,36 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#fffaf0">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="OCTAVE">
 <title>OCTAVE · 현악기 정밀 튜너</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%23ffffff"/><path d="M33.7 12.1 A20 20 0 0 1 51.9 30.3" fill="none" stroke="%23c5b0f4" stroke-width="7.5" stroke-linecap="round"/><path d="M51.9 33.7 A20 20 0 0 1 33.7 51.9" fill="none" stroke="%23f3c9b6" stroke-width="7.5" stroke-linecap="round"/><path d="M30.3 51.9 A20 20 0 0 1 12.1 33.7" fill="none" stroke="%23c8e6cd" stroke-width="7.5" stroke-linecap="round"/><path d="M12.1 30.3 A20 20 0 0 1 30.3 12.1" fill="none" stroke="%23dceeb1" stroke-width="7.5" stroke-linecap="round"/><line x1="32" y1="32" x2="32" y2="13.5" stroke="%23000000" stroke-width="5" stroke-linecap="round"/><circle cx="32" cy="32" r="4.5" fill="%23000000"/></svg>'>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap" rel="stylesheet">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%23fffaf0"/><path d="M33.7 12.1 A20 20 0 0 1 51.9 30.3" fill="none" stroke="%23b8a4ed" stroke-width="7.5" stroke-linecap="round"/><path d="M51.9 33.7 A20 20 0 0 1 33.7 51.9" fill="none" stroke="%23ff4d8b" stroke-width="7.5" stroke-linecap="round"/><path d="M30.3 51.9 A20 20 0 0 1 12.1 33.7" fill="none" stroke="%23e8b94a" stroke-width="7.5" stroke-linecap="round"/><path d="M12.1 30.3 A20 20 0 0 1 30.3 12.1" fill="none" stroke="%23ffb084" stroke-width="7.5" stroke-linecap="round"/><line x1="32" y1="32" x2="32" y2="13.5" stroke="%230a0a0a" stroke-width="5" stroke-linecap="round"/><circle cx="32" cy="32" r="4.5" fill="%230a0a0a"/></svg>'>
 <style>
-/* ============ Figma marketing palette · 흑백 에디토리얼 + 파스텔 컬러블록 ============ */
+/* ============ Clay palette · 크림 캔버스 + 세러티드 컬러카드 ============ */
 :root{
-  --ink:#000000; --canvas:#ffffff;
-  --hairline:#e6e6e6; --hairline-soft:#f1f1f1; --soft:#f7f7f5;
-  --lime:#dceeb1; --lilac:#c5b0f4; --cream:#f4ecd6; --mint:#c8e6cd;
-  --pink:#efd4d4; --coral:#f3c9b6; --navy:#1f1d3d;
-  --magenta:#ff3d8b; --success:#1ea64a;
-  --r-md:8px; --r-lg:24px; --pill:999px;
+  --ink:#0a0a0a; --canvas:#fffaf0; --body:#3a3a3a; --muted:#6a6a6a;
+  --hairline:#e5e5e5; --hairline-soft:#f0f0f0;
+  --soft:#faf5e8; --card:#f5f0e0;
+  --pink:#ff4d8b; --teal:#1a3a3a; --lavender:#b8a4ed; --peach:#ffb084;
+  --ochre:#e8b94a; --mint:#a4d4c5; --coral:#ff6b5a;
+  --success:#22c55e;
+  --r-md:12px; --r-lg:16px; --r-xl:24px; --pill:9999px;
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{height:100%}
 body{
   min-height:100dvh; background:var(--canvas); color:var(--ink);
   font-family:"Inter",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",system-ui,sans-serif;
-  font-weight:400; letter-spacing:-0.01em;
+  font-weight:400;
   display:flex; justify-content:center;
   overscroll-behavior:none; accent-color:var(--ink);
 }
-.num{font-family:"JetBrains Mono","SF Mono",ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+.num{font-variant-numeric:tabular-nums}
 button{font:inherit;color:inherit;background:none;border:none;cursor:pointer;touch-action:manipulation}
 button:active{transform:scale(.97)}
 select{font:inherit;color:inherit}
@@ -43,45 +44,46 @@ header{display:flex;align-items:center;gap:10px;padding:14px 2px 4px}
 .logo{display:flex;align-items:center;gap:10px}
 .logo svg{display:block}
 .logo .word{font-weight:600;font-size:20px;letter-spacing:-0.03em}
-.logo .sub{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:10px;letter-spacing:.08em;margin-top:2px}
+.logo .sub{font-size:10px;font-weight:600;letter-spacing:.13em;color:var(--muted);margin-top:2px}
 header .grow{flex:1}
 .a4badge{
   display:flex;align-items:center;gap:7px;
   background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--pill);
-  padding:8px 14px;font-size:13px;font-weight:480;
+  padding:8px 14px;font-size:13px;font-weight:500;
 }
 .a4badge b{font-weight:600}
-.sigdot{width:7px;height:7px;border-radius:50%;background:#d9d9d9;transition:background .2s}
+.sigdot{width:7px;height:7px;border-radius:50%;background:var(--hairline);transition:background .2s}
 .sigdot.on{background:var(--success)}
 .iconbtn{
   width:40px;height:40px;border-radius:var(--pill);display:flex;align-items:center;justify-content:center;
-  background:var(--soft);color:var(--ink);
+  background:var(--card);color:var(--ink);
 }
 
-/* ---------- instrument chips (pricing-tab 패턴) ---------- */
+/* ---------- instrument chips (선택 = 딥 틸) ---------- */
 .chips{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;padding:2px}
 .chip{
-  flex:0 0 auto;padding:8px 15px;border-radius:var(--pill);font-size:13.5px;font-weight:480;
+  flex:0 0 auto;padding:8px 15px;border-radius:var(--pill);font-size:13.5px;font-weight:500;
   background:var(--canvas);border:1px solid var(--hairline);white-space:nowrap;
 }
 @media (max-width:420px){
   .chip{padding:7px 12px;font-size:12.5px}
 }
-.chip.on{color:var(--canvas);background:var(--ink);border-color:var(--ink);font-weight:540}
+.chip.on{color:#fff;background:var(--teal);border-color:var(--teal);font-weight:600}
 
 /* ---------- tuning row ---------- */
 .tunerow{display:flex;gap:8px;align-items:center}
 .tuningsel{
   flex:1;appearance:none;-webkit-appearance:none;
-  background:var(--canvas) url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8"><path d="M1 1.5l5 5 5-5" fill="none" stroke="%23000000" stroke-width="1.8" stroke-linecap="round"/></svg>') no-repeat right 14px center;
-  border:1px solid var(--hairline);border-radius:var(--r-md);padding:10px 34px 10px 14px;font-size:13.5px;font-weight:450;
+  background:var(--canvas) url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8"><path d="M1 1.5l5 5 5-5" fill="none" stroke="%230a0a0a" stroke-width="1.8" stroke-linecap="round"/></svg>') no-repeat right 14px center;
+  border:1px solid var(--hairline);border-radius:var(--r-md);padding:10px 34px 10px 14px;font-size:13.5px;font-weight:500;
 }
 .seg{display:flex;background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--pill);padding:3px;gap:2px}
-.seg button{padding:7px 14px;border-radius:var(--pill);font-size:12.5px;font-weight:480}
-.seg button.on{background:var(--ink);color:var(--canvas);font-weight:540}
+.seg button{padding:7px 14px;border-radius:var(--pill);font-size:12.5px;font-weight:500;color:var(--muted)}
+.seg button.on{background:var(--teal);color:#fff;font-weight:600}
 
-/* ---------- gauge (라임 컬러블록) ---------- */
-.hero{background:var(--lime);border-radius:var(--r-lg);padding:14px 0 10px}
+/* ---------- gauge (피치 카드, 정음 시 민트로 변신) ---------- */
+.hero{background:var(--peach);border-radius:var(--r-xl);padding:14px 0 10px;transition:background .4s ease}
+.hero.locked{background:var(--mint)}
 .gaugewrap{position:relative;display:flex;justify-content:center}
 #gauge{display:block;width:min(78vw,380px);height:min(78vw,380px)}
 .startov{
@@ -89,103 +91,104 @@ header .grow{flex:1}
 }
 .startbtn{
   display:flex;align-items:center;gap:10px;
-  background:var(--ink);color:var(--canvas);border-radius:var(--pill);
-  padding:14px 28px;font-size:17px;font-weight:540;
+  background:var(--ink);color:#fff;border-radius:var(--r-md);
+  padding:13px 26px;font-size:16px;font-weight:600;
 }
 .starthint{
-  font-size:12px;font-weight:450;color:var(--ink);
+  font-size:12px;font-weight:500;color:var(--ink);
   background:var(--canvas);border-radius:var(--pill);padding:7px 14px;
 }
 .errcard{
   position:absolute;left:7%;right:7%;top:50%;transform:translateY(-50%);
-  background:var(--canvas);border-radius:16px;
+  background:var(--canvas);border-radius:var(--r-lg);
   padding:20px;text-align:center;display:flex;flex-direction:column;gap:10px;
 }
 .errcard b{font-size:15px;font-weight:600}
-.errcard p{font-size:12.5px;font-weight:400;line-height:1.55}
-.errcard button{align-self:center;padding:9px 22px;border-radius:var(--pill);background:var(--ink);color:var(--canvas);font-weight:540;font-size:13.5px}
+.errcard p{font-size:12.5px;font-weight:400;line-height:1.55;color:var(--body)}
+.errcard button{align-self:center;padding:10px 20px;border-radius:var(--r-md);background:var(--ink);color:#fff;font-weight:600;font-size:13.5px}
 
 /* ---------- strings ---------- */
 .strings{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
 .spill{
-  min-width:58px;padding:8px 10px;border-radius:12px;text-align:center;
+  min-width:58px;padding:8px 10px;border-radius:var(--r-md);text-align:center;
   background:var(--canvas);border:1.5px solid var(--hairline);transition:border-color .15s,background .15s;
 }
-.spill .idx{display:block;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:9px;letter-spacing:.06em;margin-bottom:2px}
+.spill .idx{display:block;font-size:9px;font-weight:600;letter-spacing:.1em;color:var(--muted);margin-bottom:2px}
 .spill .nm{font-size:16px;font-weight:600}
-.spill .oct{font-size:10.5px;font-weight:500}
-.spill.near{border-color:var(--ink)}
-.spill.lock{background:var(--ink);border-color:var(--ink)}
-.spill.lock .nm,.spill.lock .oct,.spill.lock .idx{color:var(--canvas)}
+.spill .oct{font-size:10.5px;font-weight:500;color:var(--body)}
+.spill.near{border-color:var(--teal)}
+.spill.near .nm{color:var(--teal)}
+.spill.lock{background:var(--teal);border-color:var(--teal)}
+.spill.lock .nm,.spill.lock .oct,.spill.lock .idx{color:#fff}
 
 /* ---------- rows / cards ---------- */
 .rowc{display:flex;gap:8px;align-items:center;justify-content:center}
 .tonebtn{
-  display:flex;align-items:center;gap:8px;padding:10px 20px;border-radius:var(--pill);
-  background:var(--canvas);border:1px solid var(--hairline);font-size:13.5px;font-weight:480;
+  display:flex;align-items:center;gap:8px;padding:11px 20px;border-radius:var(--r-md);
+  background:var(--canvas);border:1px solid var(--hairline);font-size:13.5px;font-weight:600;
 }
-.tonebtn.on{color:var(--canvas);background:var(--ink);border-color:var(--ink)}
+.tonebtn.on{color:#fff;background:var(--teal);border-color:var(--teal)}
 .noteselrow{display:flex;gap:8px;justify-content:center;align-items:center}
 .notesel{
   appearance:none;-webkit-appearance:none;background:var(--canvas);border:1px solid var(--hairline);
   border-radius:var(--r-md);padding:9px 14px;font-size:14px;text-align:center;
 }
-.card{background:var(--canvas);border:1px solid var(--hairline);border-radius:16px;padding:12px 14px}
+.card{background:var(--card);border-radius:var(--r-lg);padding:12px 14px}
 .cardhead{display:flex;align-items:center;margin-bottom:6px}
-.cardhead .t{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:10.5px;letter-spacing:.06em}
+.cardhead .t{font-size:11px;font-weight:600;letter-spacing:.1em;color:var(--muted)}
 .cardhead .grow{flex:1}
-.lvlbar{width:64px;height:4px;border-radius:2px;background:var(--hairline-soft);overflow:hidden}
+.lvlbar{width:64px;height:4px;border-radius:2px;background:rgba(10,10,10,.08);overflow:hidden}
 .lvlbar i{display:block;height:100%;width:0%;background:var(--ink);border-radius:2px;transition:width .1s linear}
 #trail{display:block;width:100%;height:64px}
 
-/* ---------- tabs (inverse-canvas 스트립) ---------- */
+/* ---------- tabs (크림 하단바 — Clay는 다크 푸터를 쓰지 않음) ---------- */
 .tabbar{
   position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:center;
-  background:var(--ink);
+  background:var(--soft);border-top:1px solid var(--hairline-soft);
   padding:10px 0 calc(10px + env(safe-area-inset-bottom));
   z-index:30;
 }
 .tabbar .inner{display:flex;width:100%;max-width:560px;gap:8px;padding:0 16px}
 .tab{
   flex:1;display:flex;align-items:center;justify-content:center;gap:8px;
-  padding:10px 0;color:rgba(255,255,255,.62);font-size:13px;font-weight:480;border-radius:var(--pill);
+  padding:10px 0;color:var(--muted);font-size:13px;font-weight:500;border-radius:var(--pill);
 }
-.tab.on{background:var(--canvas);color:var(--ink);font-weight:540}
+.tab.on{background:var(--teal);color:#fff;font-weight:600}
 .hidden{display:none!important}
 
-/* ---------- metronome (라일락 컬러블록) ---------- */
+/* ---------- metronome (핑크 카드 + 흰 컨트롤) ---------- */
 #tab-metro .metro{
-  background:var(--lilac);border-radius:var(--r-lg);
+  background:var(--pink);border-radius:var(--r-xl);
   display:flex;flex-direction:column;gap:18px;align-items:center;
-  padding:34px 20px 26px;
+  padding:34px 20px 26px;color:#fff;
 }
-.bpmnum{font-family:"Inter",system-ui,sans-serif;font-size:84px;font-weight:340;line-height:1;letter-spacing:-0.04em;font-variant-numeric:tabular-nums}
-.bpmlbl{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.14em;margin-top:6px;text-align:center}
-.bpmslider{width:100%;max-width:340px;accent-color:var(--ink)}
+.bpmnum{font-size:84px;font-weight:500;line-height:1;letter-spacing:-0.04em;font-variant-numeric:tabular-nums}
+.bpmlbl{font-size:11px;font-weight:600;letter-spacing:.16em;margin-top:6px;text-align:center}
+.bpmslider{width:100%;max-width:340px;accent-color:#fff}
 .metrobtns{display:flex;gap:10px}
 .mbtn{
-  padding:11px 20px;border-radius:var(--pill);background:var(--canvas);
-  font-size:14px;font-weight:540;min-width:58px;
+  padding:11px 20px;border-radius:var(--r-md);background:var(--canvas);color:var(--ink);
+  font-size:14px;font-weight:600;min-width:58px;
 }
 .sigchips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
-.sigchip{padding:8px 16px;border-radius:var(--pill);background:var(--canvas);font-size:13px;font-weight:480}
-.sigchip.on{color:var(--canvas);background:var(--ink)}
+.sigchip{padding:8px 16px;border-radius:var(--pill);background:var(--canvas);color:var(--ink);font-size:13px;font-weight:500}
+.sigchip.on{color:#fff;background:var(--ink);font-weight:600}
 .beatdots{display:flex;gap:12px;height:22px;align-items:center}
-.bdot{width:12px;height:12px;border-radius:50%;background:transparent;border:1.5px solid rgba(0,0,0,.4);transition:transform .08s,background .08s}
+.bdot{width:12px;height:12px;border-radius:50%;background:transparent;border:1.5px solid rgba(255,255,255,.65);transition:transform .08s,background .08s}
 .bdot.acc{width:15px;height:15px}
-.bdot.hit{background:var(--ink);border-color:var(--ink);transform:scale(1.3)}
+.bdot.hit{background:#fff;border-color:#fff;transform:scale(1.3)}
 .metrostart{
-  width:100%;max-width:340px;padding:15px;border-radius:var(--pill);
-  background:var(--ink);color:var(--canvas);font-size:16px;font-weight:540;
+  width:100%;max-width:340px;padding:15px;border-radius:var(--r-md);
+  background:var(--canvas);color:var(--ink);font-size:16px;font-weight:600;
 }
-.metrostart.running{background:var(--canvas);color:var(--ink)}
+.metrostart.running{background:var(--ink);color:#fff}
 
 /* ---------- settings sheet ---------- */
 .sheetbg{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:40;opacity:0;pointer-events:none;transition:opacity .2s}
 .sheetbg.open{opacity:1;pointer-events:auto}
 .sheet{
   position:fixed;left:50%;bottom:0;transform:translate(-50%,105%);width:100%;max-width:560px;
-  background:var(--canvas);border-radius:var(--r-lg) var(--r-lg) 0 0;
+  background:var(--canvas);border-radius:var(--r-xl) var(--r-xl) 0 0;
   box-shadow:0 -8px 40px rgba(0,0,0,.14);
   padding:10px 22px calc(26px + env(safe-area-inset-bottom));z-index:41;
   transition:transform .28s cubic-bezier(.32,.72,.25,1);
@@ -196,19 +199,19 @@ header .grow{flex:1}
 .set{display:flex;flex-direction:column;gap:10px;padding:15px 0;border-bottom:1px solid var(--hairline-soft)}
 .set:last-child{border-bottom:none}
 .set .lbl{font-size:14px;font-weight:600}
-.set .desc{font-size:12px;font-weight:400;margin-top:-5px;line-height:1.55}
+.set .desc{font-size:12px;font-weight:400;margin-top:-5px;line-height:1.55;color:var(--body)}
 .steprow{display:flex;align-items:center;gap:12px}
 .stepbtn{
-  width:40px;height:40px;border-radius:var(--pill);background:var(--soft);
+  width:40px;height:40px;border-radius:var(--pill);background:var(--card);
   font-size:20px;font-weight:500;display:flex;align-items:center;justify-content:center;
 }
 .stepval{flex:1;text-align:center;font-size:22px;font-weight:600}
-.stepval small{font-size:12px;font-weight:480;margin-left:4px}
+.stepval small{font-size:12px;font-weight:500;color:var(--muted);margin-left:4px}
 .presets{display:flex;gap:7px;flex-wrap:wrap}
-.preset{padding:7px 14px;border-radius:var(--pill);background:var(--canvas);border:1px solid var(--hairline);font-size:12.5px;font-weight:480}
-.preset.on{color:var(--canvas);background:var(--ink);border-color:var(--ink);font-weight:540}
+.preset{padding:7px 14px;border-radius:var(--pill);background:var(--canvas);border:1px solid var(--hairline);font-size:12.5px;font-weight:500}
+.preset.on{color:#fff;background:var(--teal);border-color:var(--teal);font-weight:600}
 @media (prefers-reduced-motion:reduce){
-  .sheet{transition:none}.sheetbg{transition:none}
+  .sheet{transition:none}.sheetbg{transition:none}.hero{transition:none}
 }
 </style>
 </head>
@@ -218,12 +221,12 @@ header .grow{flex:1}
   <header>
     <div class="logo">
       <svg width="36" height="36" viewBox="0 0 64 64" aria-label="OCTAVE 로고">
-        <path d="M33.7 12.1 A20 20 0 0 1 51.9 30.3" fill="none" stroke="#c5b0f4" stroke-width="7.5" stroke-linecap="round"/>
-        <path d="M51.9 33.7 A20 20 0 0 1 33.7 51.9" fill="none" stroke="#f3c9b6" stroke-width="7.5" stroke-linecap="round"/>
-        <path d="M30.3 51.9 A20 20 0 0 1 12.1 33.7" fill="none" stroke="#c8e6cd" stroke-width="7.5" stroke-linecap="round"/>
-        <path d="M12.1 30.3 A20 20 0 0 1 30.3 12.1" fill="none" stroke="#dceeb1" stroke-width="7.5" stroke-linecap="round"/>
-        <line x1="32" y1="32" x2="32" y2="13.5" stroke="#000000" stroke-width="5" stroke-linecap="round"/>
-        <circle cx="32" cy="32" r="4.5" fill="#000000"/>
+        <path d="M33.7 12.1 A20 20 0 0 1 51.9 30.3" fill="none" stroke="#b8a4ed" stroke-width="7.5" stroke-linecap="round"/>
+        <path d="M51.9 33.7 A20 20 0 0 1 33.7 51.9" fill="none" stroke="#ff4d8b" stroke-width="7.5" stroke-linecap="round"/>
+        <path d="M30.3 51.9 A20 20 0 0 1 12.1 33.7" fill="none" stroke="#e8b94a" stroke-width="7.5" stroke-linecap="round"/>
+        <path d="M12.1 30.3 A20 20 0 0 1 30.3 12.1" fill="none" stroke="#ffb084" stroke-width="7.5" stroke-linecap="round"/>
+        <line x1="32" y1="32" x2="32" y2="13.5" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="32" cy="32" r="4.5" fill="#0a0a0a"/>
       </svg>
       <div>
         <div class="word">OCTAVE</div>
@@ -253,7 +256,7 @@ header .grow{flex:1}
       </div>
     </div>
 
-    <div class="hero">
+    <div class="hero" id="hero">
     <div class="gaugewrap">
       <canvas id="gauge"></canvas>
       <div class="startov" id="startov">
@@ -738,7 +741,7 @@ function updateTuning(now) {
         if (!disp.inTuneSince) disp.inTuneSince = now;
         if (!disp.locked && now - disp.inTuneSince > 400) {
           disp.locked = true;
-          if (navigator.vibrate && window.__interacted) navigator.vibrate(12);
+          buzz(12);
         }
       } else { disp.inTuneSince = 0; disp.locked = false; }
     }
@@ -761,7 +764,7 @@ function updateTuning(now) {
    렌더링 — 게이지 캔버스
    ===================================================================== */
 const el = {};
-['gauge','trail','chips','tuningsel','tunerow','modeseg','strings','chromrow','cnote','coct',
+['hero','gauge','trail','chips','tuningsel','tunerow','modeseg','strings','chromrow','cnote','coct',
  'tonebtn','tonelbl','startov','startbtn','errcard','errmsg','retrybtn','errclose','sigdot','lvl',
  'a4badge','a4txt','gearbtn','sheet','sheetbg','a4val','a4down','a4up','a4presets',
  'capoval','capodown','capoup','notseg','sensseg',
@@ -784,10 +787,8 @@ function sizeCanvases() {
 }
 window.addEventListener('resize', sizeCanvases);
 
-function sevColor(absC) { // 0~50¢ → 색 (정음=석세스 그린, 근접=잉크, 크게 벗어남=마젠타)
-  if (absC <= 3) return '#1ea64a';
-  if (absC <= 25) return '#000000';
-  return '#ff3d8b';
+function sevColor() { // Clay: 게이지 그래픽은 잉크 단색 — 정음 신호는 카드 색 전환(피치→민트)이 담당
+  return '#0a0a0a';
 }
 
 function drawGauge(state) {
@@ -797,7 +798,7 @@ function drawGauge(state) {
   const cx = Lp / 2, cy = Lp / 2;
   const active = state.fresh, holding = state.holding;
   const cents = Math.max(-50, Math.min(50, disp.smooth));
-  const col = active ? sevColor(Math.abs(cents)) : 'rgba(0,0,0,0.30)';
+  const col = active ? sevColor() : 'rgba(0,0,0,0.30)';
   const locked = disp.locked && active;
 
   // 잠금 글로우
@@ -846,10 +847,10 @@ function drawGauge(state) {
   ctx.beginPath();
   ctx.arc(cx, cy, rA + Lp * 0.012, angOf(-3), angOf(3));
   ctx.lineWidth = Lp * 0.012;
-  ctx.strokeStyle = 'rgba(30,166,74,0.85)';
+  ctx.strokeStyle = 'rgba(255,255,255,0.95)';
   ctx.stroke();
   // 라벨
-  ctx.font = `500 ${Lp * 0.030}px "JetBrains Mono","SF Mono",ui-monospace,monospace`;
+  ctx.font = `500 ${Lp * 0.030}px "Inter",-apple-system,sans-serif`;
   ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
   ctx.fillStyle = 'rgba(0,0,0,0.55)';
   for (const c of [-50, -25, 25, 50]) {
@@ -868,7 +869,6 @@ function drawGauge(state) {
   const na = (-90 + disp.needleA * 2.4) * Math.PI / 180;
   const nr = rA - Lp * 0.048;
   ctx.save();
-  if (locked) { ctx.shadowColor = col; ctx.shadowBlur = Lp * 0.025; }
   ctx.beginPath();
   ctx.moveTo(cx - Math.cos(na) * Lp * 0.04, cy - Math.sin(na) * Lp * 0.04);
   ctx.lineTo(cx + Math.cos(na) * nr, cy + Math.sin(na) * nr);
@@ -889,17 +889,17 @@ function drawGauge(state) {
     ctx.font = `480 ${Lp * 0.16}px "Inter",-apple-system,system-ui,sans-serif`;
     try { ctx.letterSpacing = (-Lp * 0.004) + 'px'; } catch (e) {}
     const nw = ctx.measureText(nm).width;
-    ctx.fillStyle = dimT ? 'rgba(0,0,0,0.40)' : (locked ? '#1ea64a' : '#000000');
+    ctx.fillStyle = dimT ? 'rgba(0,0,0,0.40)' : '#0a0a0a';
     ctx.textBaseline = 'alphabetic';
     ctx.fillText(nm, cx, cy + Lp * 0.20);
     try { ctx.letterSpacing = '0px'; } catch (e) {}
-    ctx.font = `500 ${Lp * 0.052}px "JetBrains Mono","SF Mono",ui-monospace,monospace`;
+    ctx.font = `500 ${Lp * 0.052}px "Inter",-apple-system,sans-serif`;
     ctx.fillStyle = dimT ? 'rgba(0,0,0,0.35)' : 'rgba(0,0,0,0.6)';
     ctx.fillText(oc, cx + nw / 2 + Lp * 0.04, cy + Lp * 0.20);
     // Hz · 센트
     const cV = Math.round(Math.max(-99, Math.min(99, disp.cents)));
     const hzS = disp.hz >= 100 ? disp.hz.toFixed(1) : disp.hz.toFixed(2);
-    ctx.font = `500 ${Lp * 0.040}px "JetBrains Mono","SF Mono",ui-monospace,monospace`;
+    ctx.font = `500 ${Lp * 0.040}px "Inter",-apple-system,sans-serif`;
     const s1 = hzS + ' Hz', s2 = (cV > 0 ? '+' : '') + cV + '¢';
     const w1 = ctx.measureText(s1).width, w2 = ctx.measureText(s2).width, gap = Lp * 0.03;
     const total = w1 + gap + w2, x0 = cx - total / 2;
@@ -911,7 +911,7 @@ function drawGauge(state) {
     ctx.textAlign = 'center';
     if (locked) {
       ctx.font = `600 ${Lp * 0.036}px "Inter",-apple-system,sans-serif`;
-      ctx.fillStyle = '#1ea64a';
+      ctx.fillStyle = '#0a0a0a';
       ctx.fillText('정음', cx, cy - Lp * 0.115);
     }
   } else if (S.running) {
@@ -932,7 +932,7 @@ function drawTrail(now) {
   ctx.clearRect(0, 0, w, h);
   // 정음 밴드 ±3¢
   const yOf = c => h / 2 - (c / 55) * (h / 2 - 4);
-  ctx.fillStyle = 'rgba(220,238,177,0.55)';
+  ctx.fillStyle = 'rgba(164,212,197,0.55)';
   ctx.fillRect(0, yOf(3), w, yOf(-3) - yOf(3));
   ctx.strokeStyle = 'rgba(0,0,0,0.10)';
   ctx.setLineDash([3, 4]);
@@ -958,7 +958,7 @@ function drawTrail(now) {
     if (now - last.t < 400) {
       ctx.beginPath();
       ctx.arc(w - ((now - last.t) / 8000) * w, yOf(last.cents), 3, 0, Math.PI * 2);
-      ctx.fillStyle = sevColor(Math.abs(last.cents));
+      ctx.fillStyle = Math.abs(last.cents) <= 3 ? '#22c55e' : '#0a0a0a';
       ctx.fill();
     }
   }
@@ -983,6 +983,7 @@ function loop() {
   frameFlip = !frameFlip;
   let state = { fresh: false, holding: false };
   if (!el['tab-metro'] || el.tabTuner !== false) state = updateTuning(now);
+  el.hero.classList.toggle('locked', disp.locked && state.fresh);
   drawGauge(state);
   drawTrail(now);
   syncStringHighlight();
@@ -1158,7 +1159,14 @@ function setBpm(v) {
 }
 
 /* ---------- 이벤트 바인딩 ---------- */
-window.addEventListener('pointerdown', () => { window.__interacted = true; }, { once: true });
+// 진동: user activation 없이 호출하면 브라우저가 경고를 찍으므로 표준 API로 사전 확인
+function buzz(ms) {
+  if (!navigator.vibrate) return;
+  const ua = navigator.userActivation;
+  if (ua && !ua.hasBeenActive) return;
+  try { navigator.vibrate(ms); } catch (e) {}
+}
+
 el.startbtn.onclick = startMic;
 el.retrybtn.onclick = startMic;
 el.errclose.onclick = () => el.errcard.classList.add('hidden');
@@ -1227,7 +1235,7 @@ try {
   const man = {
     name: 'OCTAVE 현악기 튜너', short_name: 'OCTAVE',
     start_url: location.href, display: 'standalone',
-    background_color: '#ffffff', theme_color: '#ffffff',
+    background_color: '#fffaf0', theme_color: '#fffaf0',
     icons: [{ src: iconSvg, sizes: 'any', type: 'image/svg+xml' }]
   };
   const l = document.createElement('link');
